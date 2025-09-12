@@ -4,7 +4,7 @@ import "dotenv/config";
 import helmet from 'helmet';
 import morgan from 'morgan';
 import productRoutes from './routes/productRoutes.js';
-import { sql } from './config/config.js';
+import { sql } from './config/db.js';
 
 const app = express();
 const PORT = process.env.PORT
