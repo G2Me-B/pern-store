@@ -20,6 +20,7 @@ function ProductPage() {
   useEffect(() => {
     fetchProduct(id);
   }, [fetchProduct, id]);
+  console.log("Current Product:", currentProduct);
 
   const handleDelete = async () => {
     if (window.confirm("Are you sure you want to delete this product?")) {
@@ -27,6 +28,12 @@ function ProductPage() {
       navigate("/");
     }
   };
+
+  const product = Array.isArray(currentProduct) ? currentProduct[0] : currentProduct;
+
+  if (!product) {
+    return <div>Product not found.</div>;
+  }
 
   if (loading) {
     return (
@@ -55,8 +62,8 @@ function ProductPage() {
         {/* PRODUCT IMAGE */}
         <div className="rounded-lg overflow-hidden shadow-lg bg-base-100">
           <img
-            src={currentProduct?.image}
-            alt={currentProduct?.name}
+            src={product?.image}
+            alt={product?.name}
             className="size-full object-cover"
           />
         </div>
