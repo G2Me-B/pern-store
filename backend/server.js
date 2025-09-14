@@ -3,13 +3,14 @@ import cors from 'cors';
 import "dotenv/config";
 import helmet from 'helmet';
 import morgan from 'morgan';
-import productRoutes from './routes/productRoutes.js';
 import { sql } from './config/db.js';
 import { aj } from './lib/arcjet.js';
-import e from 'express';
+import path from "path"
+import productRoutes from './routes/productRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT
+const __dirname = path.resolve();
 // Middlewares
 app.use(express.json());
 app.use(cors());
@@ -48,6 +49,13 @@ try {
 })
 
 app.use('/api/products', productRoutes);
+
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname, "/frontend/dist")))
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"))
+    })
+}
 
 // Db initialization 
 async function initDB() {
