@@ -52,7 +52,7 @@ export const createProduct = async (req, res) => {
     `;
 
     console.log("Product created successfully: ", newProduct[0]);
-    res.status(201).json({success: true, message: "Product created successfully"});
+    res.status(201).json({success: true, message: "Product created successfully", data: newProduct[0]});
  } catch (error) {
     console.error("Error creating product: ", error);
      res.status(500).json({success: false, message: error.message});
