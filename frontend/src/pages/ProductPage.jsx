@@ -20,7 +20,6 @@ function ProductPage() {
   useEffect(() => {
     fetchProduct(id);
   }, [fetchProduct, id]);
-  console.log("Current Product:", currentProduct);
 
   const handleDelete = async () => {
     if (window.confirm("Are you sure you want to delete this product?")) {
@@ -29,7 +28,9 @@ function ProductPage() {
     }
   };
 
-  const product = Array.isArray(currentProduct) ? currentProduct[0] : currentProduct;
+  const product = Array.isArray(currentProduct)
+    ? currentProduct[0]
+    : currentProduct;
 
   if (!product) {
     return <div>Product not found.</div>;
