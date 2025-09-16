@@ -31,7 +31,7 @@ app.use(async (req, res, next) => {
         })
 
         if (decision.isDenied()) {
-            if (decision.isRateLimit()) {
+            if (decision.reason.isRateLimit()) {
                 return res.status(429).json({
                     success: false,
                     message: "Too many requests - Rate limit exceeded"
