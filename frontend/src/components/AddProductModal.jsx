@@ -1,4 +1,9 @@
-import { DollarSignIcon, ImageIcon, Package2Icon, PlusCircleIcon } from "lucide-react";
+import {
+  DollarSignIcon,
+  ImageIcon,
+  Package2Icon,
+  PlusCircleIcon,
+} from "lucide-react";
 import { useProductStore } from "../store/useProductStore";
 
 function AddProductModal() {
@@ -9,7 +14,9 @@ function AddProductModal() {
       <div className="modal-box">
         {/* CLOSE BUTTON */}
         <form method="dialog">
-          <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">X</button>
+          <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+            X
+          </button>
         </form>
 
         {/* MODAL HEADER */}
@@ -20,7 +27,9 @@ function AddProductModal() {
             {/* PRODUCT NAME INPUT */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-base font-medium">Product Name</span>
+                <span className="label-text text-base font-medium">
+                  Product Name
+                </span>
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-base-content/50">
@@ -31,7 +40,9 @@ function AddProductModal() {
                   placeholder="Enter product name"
                   className="input input-bordered w-full pl-10 py-3 focus:input-primary transition-colors duration-200"
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
                 />
               </div>
             </div>
@@ -52,7 +63,9 @@ function AddProductModal() {
                   placeholder="0.00"
                   className="input input-bordered w-full pl-10 py-3 focus:input-primary transition-colors duration-200"
                   value={formData.price}
-                  onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, price: e.target.value })
+                  }
                 />
               </div>
             </div>
@@ -60,7 +73,9 @@ function AddProductModal() {
             {/* PRODUCT IMAGE */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-base font-medium">Image URL</span>
+                <span className="label-text text-base font-medium">
+                  Image URL
+                </span>
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-base-content/50">
@@ -71,7 +86,9 @@ function AddProductModal() {
                   placeholder="https://example.com/image.jpg"
                   className="input input-bordered w-full pl-10 py-3 focus:input-primary transition-colors duration-200"
                   value={formData.image}
-                  onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, image: e.target.value })
+                  }
                 />
               </div>
             </div>
@@ -85,7 +102,9 @@ function AddProductModal() {
             <button
               type="submit"
               className="btn btn-primary min-w-[120px]"
-              disabled={!formData.name || !formData.price || !formData.image || loading}
+              disabled={
+                !formData.name || !formData.price || !formData.image || loading
+              }
             >
               {loading ? (
                 <span className="loading loading-spinner loading-sm" />
